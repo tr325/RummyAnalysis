@@ -17,6 +17,7 @@ function h = vitals (totals)
     title('Swing')
     
     Total_hands_played = length(hands)
+    oCurrentLead = sDiff(end)
     oMode = mode(hands(:,1))
     tMode = mode(hands(:,2))
     oMean = mean(hands(:,1))

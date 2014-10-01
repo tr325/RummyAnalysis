@@ -9,7 +9,10 @@ function freq65 (hands)
     t65(tIdx) = 1;
     
     figure
-    hist(oIdx, 20);
+    hist(oIdx, 25);
     title('Olis 65 scoring rate')
+    figure
+    hist(tIdx, 25);
+    title('Toms 65 scoring rate')
     
 endfunction
