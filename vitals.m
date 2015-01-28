@@ -16,20 +16,21 @@ function h = vitals (totals)
     plot(swing);
     title('Swing')
     
+    vitals = [];
     Total_hands_played = length(hands)
     oCurrentLead = sDiff(end)
     oMode = mode(hands(:,1))
     tMode = mode(hands(:,2))
     oMean = mean(hands(:,1))
     tMean = mean(hands(:,2))
-    oMax = max(hands(:,1))
-    tMax = max(hands(:,2))
-    oMin = min(hands(:,1))
-    tMin = min(hands(:,2))
-    oMaxSwing = max(swing)
-    tMaxSwing = abs(min(swing))
-    oMaxDiff = max(sDiff)
-    tMaxDiff = abs(min(sDiff))   
+    [oMax hand] = max(hands(:,1))
+    [tMax hand] = max(hands(:,2))
+    [oMin hand] = min(hands(:,1))
+    [tMin hand] = min(hands(:,2))
+    [oMaxSwing hand] = max(swing)
+    [tMaxSwing hand] = (min(swing))
+    [oMaxDiff hand] = max(sDiff)
+    [tMaxDiff hand] = (min(sDiff))
 
     h = hands;
     
