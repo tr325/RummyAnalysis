@@ -1,4 +1,4 @@
-function h = vitals (totals)
+function hands = vitals (totals)
     
     % Plots difference in score
     sDiff = totals(:,1) - totals(:,2);
@@ -31,7 +31,5 @@ function h = vitals (totals)
     [tMaxSwing hand] = (min(swing))
     [oMaxDiff hand] = max(sDiff)
     [tMaxDiff hand] = (min(sDiff))
-
-    h = hands;
     
 endfunction

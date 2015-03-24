@@ -14,6 +14,4 @@ function tenRecords (totals)
     tBestSwingTen = abs(tBestSwingTen)
     hand = hand
     
-    
-    
 endfunction
