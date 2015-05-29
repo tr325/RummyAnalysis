@@ -12,15 +12,12 @@ function hands = vitals (totals)
     hTot = [totals; totals(end,:)];
     hands = hTot - oTot;
     swing = hands(:, 1) - hands(:,2);
-    figure
-    plot(swing);
-    title('Swing')
     
     vitals = [];
     Total_hands_played = length(hands)
     oCurrentLead = sDiff(end)
-    oMode = mode(hands(:,1))
-    tMode = mode(hands(:,2))
+    [oMode freq] = mode(hands(:,1))
+    [tMode freq] = mode(hands(:,2))
     oMean = mean(hands(:,1))
     tMean = mean(hands(:,2))
     [oMax hand] = max(hands(:,1))

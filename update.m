@@ -6,9 +6,10 @@ function update()
     else
         score = load("SCORE.ascii");
     endif
+    
     hands = vitals(score);
     fastRecords(score);
     tenRecords(score);
-    freq65(hands);
+    frequencies(hands);
     
 endfunction
