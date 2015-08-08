@@ -1,4 +1,4 @@
-function [fastRecords] = fastRecords (totals)
+function [fastRecords] = fastRecords(totals)
     
     N = length(totals);
     
@@ -64,7 +64,7 @@ function [fastRecords] = fastRecords (totals)
     oFast1000Swing = [1000 0 0];
     tFast1000Swing = [1000 0 0];
     
-    sDiff = totals(:,1) - totals(:,2);
+    sDiff = totals(:,1)-totals(:,2);
     
     for i = 1:N
         prevDif = sDiff(1:i);

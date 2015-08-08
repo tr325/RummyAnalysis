@@ -1,9 +1,9 @@
-function tenRecords (totals)
+function tenRecords(totals)
     
-    tl = [zeros(10, 2); totals];
-    th = [totals; repmat(totals(end, :), 10, 1)];
-    tenScore = th - tl;
-    tenDiff = tenScore(:,1) - tenScore(:,2);
+    tl = [zeros(10,2); totals];
+    th = [totals; repmat(totals(end,:), 10, 1)];
+    tenScore = th-tl;
+    tenDiff = tenScore(:,1)-tenScore(:,2);
     
     [oBestTen hand] = max(tenScore(:,1))
     [tBestTen hand] = max(tenScore(:,2))
