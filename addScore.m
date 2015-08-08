@@ -1,15 +1,15 @@
-function [nT] = addScore()
+function [newTotal] = addScore(inFile, outFile)
     
-    score = load("newscore.ascii");
-    totals = load("SCORE.ascii");
+    score = load(inFile);
+    totals = load(outFile);
     
-    [l c] = size(score);
-    tot = repmat(totals(end, :), l, 1);
-    score = score + tot; 
-    nT = [totals; score];
+    [len c] = size(score);
+    tot = repmat(totals(end,:), len, 1);
+    score = score+tot; 
+    newTotal = [totals; score];
     
     empty = [];
-    save("-ascii", "SCORE.ascii", "nT");
-    save("-ascii", "newscore.ascii", "empty");
+    save("-ascii", outFile, "newTotal");
+    save("-ascii", inFile, "empty");
     
 endfunction

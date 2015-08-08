@@ -1,4 +1,4 @@
-function fastRecords = fastRecords (totals)
+function [fastRecords] = fastRecords (totals)
     
     N = length(totals);
     
@@ -41,7 +41,7 @@ function fastRecords = fastRecords (totals)
     
     for i = 1:N
         if totals(i, 1) > 10000
-            j = find(totals(:,1) < totals(i,1) - 10000);
+            j = find(totals(:,1) < totals(i,1)-10000);
             if length(j) ~= 0
                 j = j(end);
                 if oFast10000(1) > (i-j)
@@ -50,7 +50,7 @@ function fastRecords = fastRecords (totals)
             end
         end
         if totals(i, 2) > 10000
-            j = find(totals(:,2) < totals(i,2) - 10000);
+            j = find(totals(:,2) < totals(i,2)-10000);
             if length(j) ~= 0
                 j = j(end);
                 if tFast10000(1) > (i-j)
@@ -68,14 +68,14 @@ function fastRecords = fastRecords (totals)
     
     for i = 1:N
         prevDif = sDiff(1:i);
-        j = find(prevDif < sDiff(i) - 1000);
+        j = find(prevDif < sDiff(i)-1000);
         if length(j) ~= 0 
             j = j(end);
             if oFast1000Swing(1) > (i-j)
                 oFast1000Swing = [(i-j), j];
             end
         end
-        j = find(prevDif > sDiff(i) + 1000);
+        j = find(prevDif > sDiff(i)+1000);
         if length(j) ~= 0
             j = j(end);
             if tFast1000Swing(1) > (i-j)
