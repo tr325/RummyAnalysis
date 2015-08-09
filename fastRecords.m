@@ -8,6 +8,8 @@ function [fastRecords] = fastRecords(totals)
     oSlow1000 = [0 0 0];
     tSlow1000 = [0 0 0];
     
+    fastRecords = {};
+
     for handNum = 1:N
         if totals(handNum, 1) > 1000
             j = find(totals(:,1) < totals(handNum,1)-1000);
@@ -34,7 +36,7 @@ function [fastRecords] = fastRecords(totals)
             end
         end
     end 
-    
+
     %Fastest 10000 points
     oFast10000 = [1000 0 0];
     tFast10000 = [1000 0 0];
@@ -84,6 +86,19 @@ function [fastRecords] = fastRecords(totals)
         end
     end
     
-    fastRecords = [oFast1000; tFast1000; oSlow1000; tSlow1000; oFast1000Swing; tFast1000Swing];
-    
+    fastRecords{1,1} = "Fastest 1000 points (in hands)";
+    fastRecords{1,2} = oFast1000(1);
+    fastRecords{1,3} = tFast1000(1);
+    fastRecords{2,1} = "Slowest 1000 points (in hands)";
+    fastRecords{2,2} = oSlow1000(1);
+    fastRecords{2,3} = tSlow1000(1);
+
+    fastRecords{3,1} = "Fastest 10000 points (in hands)";
+    fastRecords{3,2} = oFast10000(1);
+    fastRecords{3,3} = tFast10000(1);
+
+    fastRecords{4,1} = "Fastest 1000 swing (in hands)";
+    fastRecords{4,2} = oFast1000Swing(1);
+    fastRecords{4,3} = tFast1000Swing(1);
+
 endfunction

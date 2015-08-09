@@ -7,3 +7,7 @@ Maxes: 280, 240
 Mins: -90, -80
 Max swings: 225, 205
 Max lead: 2480, 340
+Fastest 1000 points (in hands): 8, 9
+Slowest 1000 points (in hands): 30, 23
+Fastest 10000 points (in hands): 125, 130
+Fastest 1000 swing (in hands): 19, 48
