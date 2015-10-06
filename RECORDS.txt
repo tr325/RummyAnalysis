@@ -1,13 +1,21 @@
 
-Total hands played: 1188, 
-Oli's current lead: 1705, 
-Modes: 65, 50
-Mean scores :-(: 70.791, 69.356
-Maxes: 280, 240
-Mins: -90, -80
-Max swings: 225, 205
-Max lead: 2480, 340
-Fastest 1000 points (in hands): 8, 9
-Slowest 1000 points (in hands): 30, 23
-Fastest 10000 points (in hands): 125, 130
-Fastest 1000 swing (in hands): 19, 48
+Total hands played:	 1188, 
+Oli's current lead:	 1705, 
+Modes:	 65, 50
+Mean scores:	 70.791, 69.356
+Maxes:	 280, 240
+Mins:	 -90, -80
+Max swings:	 225, 205
+Max lead:	 2480, 340
+Fastest 1000 points (in hands):	 8, 9
+Slowest 1000 points (in hands):	 30, 23
+Fastest 10000 points (in hands):	 125, 130
+Fastest 1000 swing (in hands):	 19, 48
+Best ten hand score:	 1185, 1165
+Worst ten hand score:	 200, 175
+Biggest ten hand swing:	 715, 570
+Mode score:	 65, 50
+Frequency of mode:	 73, 79
+Second mode score:	 35, 35
+Frequency of second mode:	 72, 78
+(Mode/second mode) ratio:	 1.014, 1.013

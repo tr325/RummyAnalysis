@@ -29,7 +29,7 @@ function [hands vitals] = vitals(totals, RECORDS)
     vitals{3,2} = mode(hands(:,1));
     vitals{3,3} = mode(hands(:,2));
 
-    vitals{4,1} = "Mean scores :-(";
+    vitals{4,1} = "Mean scores";
     vitals{4,2} = mean(hands(:,1));
     vitals{4,3} = mean(hands(:,2));
 

@@ -13,19 +13,18 @@ function update()
     
     [hands vitals] = vitals(score);
     fastests = fastRecords(score);
-    tenRecords(score);
-    frequencies(hands);
+    tens = tenRecords(score);
+    freqs = frequencies(hands);
 
-    records = [vitals; fastests];
+    records = [vitals; fastests; tens; freqs];
     for i = 1:length(records)
         % Check for integer
         if (floor(records{i,2}) == records{i,2})
-            fprintf(fRecords, '\n%s: %d, %d', records{i,:});
+            fprintf(fRecords, '\n%s:\t %d, %d', records{i,:});
         else
-            fprintf(fRecords, '\n%s: %0.3f, %0.3f', records{i,:});
+            fprintf(fRecords, '\n%s:\t %0.3f, %0.3f', records{i,:});
         end
     end
     fclose(fRecords);
-
 
 endfunction
