@@ -1,5 +1,6 @@
 
 Total hands played:	 1310, 
+Total scores:	 94425, 92475
 Oli's current lead:	 1950, 
 Modes:	 65, 50
 Mean scores:	 72.080, 70.592

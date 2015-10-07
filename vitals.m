@@ -27,27 +27,31 @@ function [hands vitals] = vitals(totals, RECORDS)
     vitals{2,1} = "Oli's current lead";
     vitals{2,2} = sDiff(end);
 
-    vitals{3,1} = "Modes";
-    vitals{3,2} = mode(hands(:,1));
-    vitals{3,3} = mode(hands(:,2));
+    vitals{3,1} = "Total scores";
+    vitals{3,2} = totals(end,1);
+    vitals{3,3} = totals(end,2);
 
-    vitals{4,1} = "Mean scores";
-    vitals{4,2} = mean(hands(:,1));
-    vitals{4,3} = mean(hands(:,2));
+    vitals{4,1} = "Modes";
+    vitals{4,2} = mode(hands(:,1));
+    vitals{4,3} = mode(hands(:,2));
 
-    vitals{5,1} = "Maxes";
-    vitals{5,2} = max(hands(:,1));
-    vitals{5,3} = max(hands(:,2));
-    vitals{6,1} = "Mins";
-    vitals{6,2} = min(hands(:,1));
-    vitals{6,3} = min(hands(:,2));
+    vitals{5,1} = "Mean scores";
+    vitals{5,2} = mean(hands(:,1));
+    vitals{5,3} = mean(hands(:,2));
 
-    vitals{7,1} = "Max swings";
-    vitals{7,2} = max(swing);
-    vitals{7,3} = -(min(swing));
+    vitals{6,1} = "Maxes";
+    vitals{6,2} = max(hands(:,1));
+    vitals{6,3} = max(hands(:,2));
+    vitals{7,1} = "Mins";
+    vitals{7,2} = min(hands(:,1));
+    vitals{7,3} = min(hands(:,2));
+
+    vitals{8,1} = "Max swings";
+    vitals{8,2} = max(swing);
+    vitals{8,3} = -(min(swing));
     
-    vitals{8,1} = "Max lead";
-    vitals{8,2} = max(sDiff);
-    vitals{8,3} = -(min(sDiff));
+    vitals{9,1} = "Max lead";
+    vitals{9,2} = max(sDiff);
+    vitals{9,3} = -(min(sDiff));
     
 endfunction
