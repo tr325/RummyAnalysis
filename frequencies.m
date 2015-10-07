@@ -19,12 +19,11 @@ function [freqRecords] = frequencies(hands)
     hold on;
     plot(tUniqScores(:,1), tUniqScores(:,2), 'r');
     xlabel('Score');ylabel('Number of times scored');
+    print 'score-frequencies.png'
+    close;
 
     % To store and return records in readable format    
     freqRecords = {};
-
-    % TODO: Any of these that used to return a second result (eg. index/hand number)
-    % don't, as they need a 2x1 array as the return container for that to work.
 
     [oSortedFreqs oUniqIndex] = sort(oUniqScores(:,2));
     freqRecords{1,1} = "Mode score";

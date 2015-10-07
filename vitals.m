@@ -7,6 +7,8 @@ function [hands vitals] = vitals(totals, RECORDS)
     title('Score difference')
     xlabel('Hand number')
     grid on
+    print 'score.png'
+    close;
     
     oTot = [0,0; totals];
     hTot = [totals; totals(end,:)];

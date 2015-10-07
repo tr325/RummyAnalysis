@@ -16,6 +16,6 @@ Worst ten hand score:	 200, 175
 Biggest ten hand swing:	 715, 805
 Mode score:	 65, 50
 Frequency of mode:	 77, 83
-Second mode score:	 65, 65
+Second mode score:	 50, 65
 Frequency of second mode:	 75, 80
 (Mode/second mode) ratio:	 1.027, 1.038
