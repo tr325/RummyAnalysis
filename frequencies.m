@@ -26,19 +26,19 @@ function [freqRecords] = frequencies(hands)
     % TODO: Any of these that used to return a second result (eg. index/hand number)
     % don't, as they need a 2x1 array as the return container for that to work.
 
-    [oSortedFreqs uniqIndex] = sort(oUniqScores(:,2));
+    [oSortedFreqs oUniqIndex] = sort(oUniqScores(:,2));
     freqRecords{1,1} = "Mode score";
-    freqRecords{1,2} = oUniqScores(uniqIndex(end));
-    [tSortedFreqs uniqIndex] = sort(tUniqScores(:,2));
-    freqRecords{1,3} = tUniqScores(uniqIndex(end));
+    freqRecords{1,2} = oUniqScores(oUniqIndex(end));
+    [tSortedFreqs tUniqIndex] = sort(tUniqScores(:,2));
+    freqRecords{1,3} = tUniqScores(tUniqIndex(end));
 
     freqRecords{2,1} = "Frequency of mode";
     freqRecords{2,2} =  oSortedFreqs(end);
     freqRecords{2,3} =  tSortedFreqs(end);
 
     freqRecords{3,1} = "Second mode score";
-    freqRecords{3,2} = oUniqScores(uniqIndex(end-1));
-    freqRecords{3,3} = tUniqScores(uniqIndex(end-1));
+    freqRecords{3,2} = oUniqScores(oUniqIndex(end-1));
+    freqRecords{3,3} = tUniqScores(tUniqIndex(end-1));
 
     freqRecords{4,1} = "Frequency of second mode";
     freqRecords{4,2} = oSortedFreqs(end-1);
