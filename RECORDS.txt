@@ -20,4 +20,7 @@ Mode score:	 65, 50
 Frequency of mode:	 77, 83
 Second mode score:	 50, 65
 Frequency of second mode:	 75, 80
-(Mode/second mode) ratio:	 1.027, 1.03838
+(Mode/second mode) ratio:	 1.027, 1.038
+Average total points scored per hand:	 143, 
+Percentage of hands drawn:	 0.320, 
+Longest winning streak:	 8, 10

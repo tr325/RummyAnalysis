@@ -15,8 +15,9 @@ function update()
     fastests = fastRecords(score);
     tens = tenRecords(score);
     freqs = frequencies(hands);
+    handRecs = handRecords(hands);
 
-    records = [vitals; fastests; tens; freqs];
+    records = [vitals; fastests; tens; freqs; handRecs];
     for i = 1:length(records)
         % Check for integer
         if (floor(records{i,2}) == records{i,2})
