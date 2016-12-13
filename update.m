@@ -5,12 +5,12 @@ function update()
     fRecords = fopen("RECORDS.txt", 'r+');
 
     d = dir(scoreIn);
-    if d.bytes ~= 0        
+    if d.bytes ~= 0
         score = addScore(scoreIn, scoreOut);
     else
         score = load(scoreOut);
     endif
-    
+
     [hands vitals] = vitals(score);
     fastests = fastRecords(score);
     tens = tenRecords(score);
