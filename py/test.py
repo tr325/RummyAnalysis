@@ -15,11 +15,21 @@ class TestRummy(unittest.TestCase):
             })
 
     def test_add_score(self):
-       totals = update.add_score(self.new_score, self.total_score)
-       total = totals.tail(1)
-       self.assertEqual(total.values[0][0], 305)
-       self.assertEqual(total.values[0][1], 520)
-       self.assertEqual(total.index.values[0], 7)
+        totals = update.add_score(self.new_score, self.total_score)
+        self.assertEqual(totals.tail(1).values[0][0], 305)
+        self.assertEqual(totals.tail(1).values[0][1], 520)
+        self.assertEqual(totals.head(1).values[0][0], 0)
+        self.assertEqual(totals.head(1).values[0][1], 110)
+        self.assertEqual(totals.tail(1).index.values[0], 7)
+
+    def test_add_hands(self):
+        totals = update.add_score(self.new_score, self.total_score)
+        with_hands = update.add_hands(totals)
+        self.assertEqual(totals.head(1).values[0][0], 0)
+        self.assertEqual(totals.tail(1).values[0][1], 520)
+        self.assertEqual(totals.head(1).values[0][3], 110)
+        self.assertEqual(totals.tail(1).values[0][2], -10)
+        self.assertEqual(totals.tail(1).index.values[0], 7)
 
 
 if __name__ == '__main__':
