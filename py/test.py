@@ -16,16 +16,17 @@ class TestRummy(unittest.TestCase):
             })
 
     def assertArrayEquals(self, a, b):
-        #TODO: Print out the values of the arrays on failure
+        a = a.flatten()
         try:
             for i in range(0, a.size):
-                self.assertEqual(a[0][i], b[i])
+                self.assertEqual(a[i], b[i])
         except:
+            print("Failed when comparing ", a, " to ", b)
             raise
 
     def test_add_score(self):
         totals = update.add_score(self.new_score, self.total_score)
-        #TODO change to use assertArrayEquals
+        # TODO: use assertArrayEquals
         self.assertEqual(totals.tail(1).values[0][0], 305)
         self.assertEqual(totals.tail(1).values[0][1], 520)
         self.assertEqual(totals.head(1).values[0][0], 0)
@@ -52,9 +53,8 @@ class TestRummy(unittest.TestCase):
         self.assertArrayEquals(r["Modes"], [25, 75])
         self.assertArrayEquals(r["Mean scores"], [38.125, 65])
         self.assertArrayEquals(r["Maxes"], [100, 205])
-        print(r["Maxes"])
-        #self.assertArrayEquals(r["Mins"], [-10, -20])
-        self.assertArrayEquals(r["Max swing"], [55, 110])
+        self.assertArrayEquals(r["Mins"], [-10, -20])
+        self.assertArrayEquals(r["Max swing"], [45, 110])
         self.assertArrayEquals(np.array(r["Max lead"]), [20, 215])
 
 if __name__ == '__main__':

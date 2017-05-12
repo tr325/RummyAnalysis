@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import csv
 
 def update():
     new_score = 'newscore.ascii'
@@ -45,17 +44,15 @@ def vitals(totals, records):
     swing = totals['oHands']-totals['tHands']
     score_difference = totals['Oli']-totals['Tom']
     score = totals.filter(items=['Oli', 'Tom'])
+    hands = totals.filter(items=['oHands', 'tHands'])
 
     records['Total hands played'] = totals.tail(1).index.values[0]+1
     records["Oli's current lead"] = score_difference.tail(1).values[0]
     records['Total scores'] = score.tail(1).values
-    records['Modes'] = score.mode().values
-    records['Mean scores'] = score.mean().values
-    records['Maxes'] = score.max().values
-    print(score)
-    print(score.max().values)
-    print(score.min().values)
-    records['Mins'] = score.min().values
+    records['Modes'] = hands.mode().values
+    records['Mean scores'] = hands.mean().values
+    records['Maxes'] = hands.max().values
+    records['Mins'] = hands.min().values
     records['Max swing'] = swing.max()
     records['Max lead'] = [score_difference.max(), score_difference.min()*-1]
 
