@@ -16,9 +16,9 @@ class TestRummy(unittest.TestCase):
             })
 
     def assertArrayEquals(self, a, b):
-        a = a.flatten()
+        # For ease of debugging
         try:
-            for i in range(0, a.size):
+            for i in range(0, len(a)):
                 self.assertEqual(a[i], b[i])
         except:
             print("Failed when comparing ", a, " to ", b)
@@ -56,6 +56,17 @@ class TestRummy(unittest.TestCase):
         self.assertArrayEquals(r["Mins"], [-10, -20])
         self.assertArrayEquals(r["Max swing"], [45, 110])
         self.assertArrayEquals(np.array(r["Max lead"]), [20, 215])
+
+    def test_fastest_records(self):
+        totals = update.add_score(self.new_score, self.total_score)
+        totals = update.add_score(pd.DataFrame({
+            'Oli': [75, 115, 320, 350, 490, 550, 630, 700],
+            'Tom': [50, 100, 250, 350, 450, 500, 580, 610]
+            }), totals)
+        update.add_hands(totals)
+        r = {}
+        update.fastest_records(totals, r)
+        self.assertArrayEquals(r['Fastest 1000'], [16, 13])
 
 if __name__ == '__main__':
     unittest.main()

@@ -48,14 +48,24 @@ def vitals(totals, records):
 
     records['Total hands played'] = totals.tail(1).index.values[0]+1
     records["Oli's current lead"] = score_difference.tail(1).values[0]
-    records['Total scores'] = score.tail(1).values
-    records['Modes'] = hands.mode().values
+    records['Total scores'] = score.tail(1).values[0]
+    records['Modes'] = hands.mode().values[0]
     records['Mean scores'] = hands.mean().values
     records['Maxes'] = hands.max().values
     records['Mins'] = hands.min().values
-    records['Max swing'] = swing.max()
+    records['Max swing'] = [swing.max(), swing.min()*-1]
     records['Max lead'] = [score_difference.max(), score_difference.min()*-1]
 
+
+def fastest_records(totals, records):
+    records["Fastest 1000"] = [find_fastest(totals['oHands']), find_fastest(totals['tHands'])]
+
+def find_fastest(hands):
+    for x in range(6, 20):
+        y = hands.rolling(x).sum()
+        z = y[y > 1000]
+        if not z.empty:
+            return x + 1
 
 if __name__ == '__main__':
     update()
