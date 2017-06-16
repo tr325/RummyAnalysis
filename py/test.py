@@ -65,8 +65,12 @@ class TestRummy(unittest.TestCase):
             }), totals)
         update.add_hands(totals)
         r = {}
+        update.vitals(totals, r)
         update.fastest_records(totals, r)
-        self.assertArrayEquals(r['Fastest 1000'], [16, 13])
+        self.assertArrayEquals(r['Fastest 1000 points (in hands)'], [16, 13])
+        self.assertArrayEquals(r['Slowest 1000 points (in hands)'], [16, 15])
+        # TODO: Test swing fully with a bigger set of test data
+        self.assertArrayEquals(r['Fastest 1000 swing (in hands)'], [None, None])
 
 if __name__ == '__main__':
     unittest.main()

@@ -45,6 +45,7 @@ def vitals(totals, records):
     score_difference = totals['Oli']-totals['Tom']
     score = totals.filter(items=['Oli', 'Tom'])
     hands = totals.filter(items=['oHands', 'tHands'])
+    totals['swing'] = swing
 
     records['Total hands played'] = totals.tail(1).index.values[0]+1
     records["Oli's current lead"] = score_difference.tail(1).values[0]
@@ -58,12 +59,37 @@ def vitals(totals, records):
 
 
 def fastest_records(totals, records):
-    records["Fastest 1000"] = [find_fastest(totals['oHands']), find_fastest(totals['tHands'])]
+    records["Fastest 1000 points (in hands)"] = [
+        find_fastest(totals['oHands'], 1000, 1, 20),
+        find_fastest(totals['tHands'], 1000, 1, 20)]
+    records["Fastest 10000 points (in hands)"] = [
+        find_fastest(totals['oHands'], 10000, 90, 120),
+        find_fastest(totals['tHands'], 10000, 90, 120)]
+    records["Slowest 1000 points (in hands)"] = [
+        find_slowest(totals['oHands'], 1000, 45, 10),
+        find_slowest(totals['tHands'], 1000, 45, 10)]
+    records["Slowest 10000 points (in hands)"] = [
+        find_slowest(totals['oHands'], 10000, 180, 150),
+        find_slowest(totals['tHands'], 10000, 180, 150)]
+    records["Fastest 1000 swing (in hands)"] = [
+        find_fastest(totals['swing'], 1000, 1, 30),
+        find_slowest(totals['swing'], -1000, 1, 30)]
 
-def find_fastest(hands):
-    for x in range(6, 20):
+def find_slowest(hands, limit, start, end):
+    # Dirty hack to make "fastest to a negative swing" work
+    step = -1
+    if(limit < 0):
+        step = 1;
+    for x in range(start, end, step):
         y = hands.rolling(x).sum()
-        z = y[y > 1000]
+        z = y[y < limit]
+        if not z.empty:
+            return x + 1
+
+def find_fastest(hands, limit, start, end):
+    for x in range(start, end):
+        y = hands.rolling(x).sum()
+        z = y[y > limit]
         if not z.empty:
             return x + 1
 
