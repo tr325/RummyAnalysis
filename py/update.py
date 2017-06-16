@@ -85,13 +85,21 @@ def find_slowest(hands, limit, start, end):
         z = y[y < limit]
         if not z.empty:
             return x + 1
-
 def find_fastest(hands, limit, start, end):
     for x in range(start, end):
         y = hands.rolling(x).sum()
         z = y[y > limit]
         if not z.empty:
             return x + 1
+
+
+def ten_hand_records(totals, records):
+    ten_rolling_oli = totals['oHands'].rolling(10).sum()
+    ten_rolling_tom = totals['tHands'].rolling(10).sum()
+    ten_diff = ten_rolling_oli-ten_rolling_tom
+    records["Best 10 hand score"] = [ten_rolling_oli.max(), ten_rolling_tom.max()]
+    records["Worst 10 hand score"] = [ten_rolling_oli.min(), ten_rolling_tom.min()]
+    records["Biggest 10 hand swing"] = [ten_diff.max(), -1*ten_diff.min()]
 
 if __name__ == '__main__':
     update()

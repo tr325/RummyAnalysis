@@ -14,6 +14,10 @@ class TestRummy(unittest.TestCase):
             'Oli': [25,55,155,145],
             'Tom': [75,150,355,380]
             })
+        self.second_score = pd.DataFrame({
+            'Oli': [75, 115, 320, 350, 490, 550, 630, 700],
+            'Tom': [50, 100, 250, 350, 450, 500, 580, 610]
+            })
 
     def assertArrayEquals(self, a, b):
         # For ease of debugging
@@ -59,10 +63,7 @@ class TestRummy(unittest.TestCase):
 
     def test_fastest_records(self):
         totals = update.add_score(self.new_score, self.total_score)
-        totals = update.add_score(pd.DataFrame({
-            'Oli': [75, 115, 320, 350, 490, 550, 630, 700],
-            'Tom': [50, 100, 250, 350, 450, 500, 580, 610]
-            }), totals)
+        totals = update.add_score(self.second_score, totals)
         update.add_hands(totals)
         r = {}
         update.vitals(totals, r)
@@ -72,5 +73,14 @@ class TestRummy(unittest.TestCase):
         # TODO: Test swing fully with a bigger set of test data
         self.assertArrayEquals(r['Fastest 1000 swing (in hands)'], [None, None])
 
+    def test_ten_hand_records(self):
+        totals = update.add_score(self.new_score, self.total_score)
+        totals = update.add_score(self.second_score, totals)
+        update.add_hands(totals)
+        r = {}
+        update.ten_hand_records(totals, r)
+        self.assertArrayEquals(r["Best 10 hand score"], [790, 885])
+        self.assertArrayEquals(r["Worst 10 hand score"], [420, 620])
+        self.assertArrayEquals(r["Biggest 10 hand swing"], [-35, 200])
 if __name__ == '__main__':
     unittest.main()
