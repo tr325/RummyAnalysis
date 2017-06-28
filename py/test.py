@@ -82,5 +82,6 @@ class TestRummy(unittest.TestCase):
         self.assertArrayEquals(r["Best 10 hand score"], [790, 885])
         self.assertArrayEquals(r["Worst 10 hand score"], [420, 620])
         self.assertArrayEquals(r["Biggest 10 hand swing"], [-35, 200])
+
 if __name__ == '__main__':
     unittest.main()
