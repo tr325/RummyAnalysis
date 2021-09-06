@@ -1,7 +1,7 @@
 function update()
 
-    scoreIn = "newscore.ascii";
-    scoreOut = "SCORE.ascii";
+    scoreIn = "newscore.txt";
+    scoreOut = "SCORE.txt";
     fRecords = fopen("RECORDS.txt", 'r+');
 
     d = dir(scoreIn);
