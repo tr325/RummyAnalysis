@@ -1,5 +1,6 @@
 octave-workspace
 myvirtualenv
 
+.DS_Store
 *.swp
 *.swo
