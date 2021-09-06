@@ -1,1 +1,5 @@
 octave-workspace
+myvirtualenv
+
+*.swp
+*.swo
