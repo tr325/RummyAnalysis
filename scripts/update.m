@@ -1,8 +1,8 @@
 function update()
 
-    scoreIn = "newscore.txt";
-    scoreOut = "SCORE.txt";
-    fRecords = fopen("RECORDS.txt", 'r+');
+    scoreIn = "../newscore.txt";
+    scoreOut = "../results/SCORE.txt";
+    fRecords = fopen("../results/RECORDS.txt", 'r+');
 
     d = dir(scoreIn);
     if d.bytes ~= 0
