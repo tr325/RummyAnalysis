@@ -5,7 +5,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     container:
-      image: octave:latest
+      image: gnuoctave/octave:6.3.0
     steps:
       # TODO: does Ubuntu include octave?
       - name: Push changes after running update
