@@ -15,21 +15,15 @@ jobs:
           git init
           # TODO: need to add the appropriate secret to the Github repo
           git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
-          git config --global user.email "my-bot@bot.com"
-          git config --global user.name "my-bot"
+          git config --global user.email "tom-in-the-machine@bot.com"
+          git config --global user.name "tom-in-the-machine"
           git fetch
           git checkout actions-automation
       - name: Update scores etc
         run: |
           sudo apt-get update
           sudo apt-get install octave
-          pwd
-          ls -al
-          ls results
           cd scripts
-          echo "cd scripts"
-          pwd
-          ls -al
           octave update.m
       - name: Push new results
         run: |
