@@ -24,7 +24,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install octave
+          pwd
+          ls -al
           cd scripts
+          echo "cd scripts"
+          pwd ls -al
           octave update.m
       - name: Push new results
         run: |
