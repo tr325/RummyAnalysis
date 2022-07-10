@@ -20,9 +20,9 @@ jobs:
         with:
           name: results
           path: results
-  pushchanges:
+  push-changes:
     runs-on: ubuntu-latest  # TODO: just need git really
-      steps:
+    steps:
       - name: Download repository, delete old results
         run: |
           git init
