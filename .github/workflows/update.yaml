@@ -1,9 +1,9 @@
 name: Update scores and analyse
-on: push    # TODO: maybe limit this once it's in master? Just the score file path?
+on:
+  push:
+    paths:
+      newscore.txt
 env:
-  # Allows us to call github APIs with our own personal auth token
-  # eg. if we want to open issues as a result of Actions results - see more here:
-  # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
