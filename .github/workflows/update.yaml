@@ -10,27 +10,6 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      # This fails because it can't use `mkdir` in the container... I guess because the container is so stripped down?
-      # Which means I can't actually run my sodding update on the code... Maybe better to re-try installing octave to
-      # the ubunty-latest runner?
-      - name: Download repository
-        uses: actions/checkout@v3
-        with:
-          ref: actions-automation
-      - name: Update scores etc
-        run: |
-          sudo apt-get update
-          sudo apt-get install octave
-          octave scripts/update.m
-      - name: Upload changed artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: results
-          path: results
-  push-changes:
-    runs-on: ubuntu-latest  # TODO: just need git really
-    needs: update
-    steps:
       - name: Download repository, delete old results
         run: |
           git init
@@ -41,12 +20,14 @@ jobs:
           git fetch
           git checkout actions-automation
           rm -rf results/
-      - name: Download updated results
-        uses: actions/download-artifact@v3
-        with:
-          name: results
+      - name: Update scores etc
+        run: |
+          sudo apt-get update
+          sudo apt-get install octave
+          octave scripts/update.m
       - name: Push new results
         run: |
+          ls -al
           git branch --set-upstream-to=origin/actions-automation
           git commit -a -m 'Recalculate totals and records'
           git push
