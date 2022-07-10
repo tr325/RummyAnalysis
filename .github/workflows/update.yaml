@@ -19,15 +19,13 @@ jobs:
           git config --global user.name "my-bot"
           git fetch
           git checkout actions-automation
-          rm -rf results/
       - name: Update scores etc
         run: |
           sudo apt-get update
           sudo apt-get install octave
           pwd
           ls -al
-          ls ..
-          ls ../results
+          ls results
           cd scripts
           echo "cd scripts"
           pwd
