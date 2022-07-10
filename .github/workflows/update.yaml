@@ -28,7 +28,8 @@ jobs:
           ls -al
           cd scripts
           echo "cd scripts"
-          pwd ls -al
+          pwd
+          ls -al
           octave update.m
       - name: Push new results
         run: |
