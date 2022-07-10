@@ -13,13 +13,13 @@ function [freqRecords] = frequencies(hands)
        tUniqScores(i,2) = length(find(tHands == tUniqScores(i)));
     end
     
-    figure;
+    figure ("visible", "off");
     plot(oUniqScores(:,1), oUniqScores(:,2));
     title("Score frequencies - (Oli: blue, Tom: red)");
     hold on;
     plot(tUniqScores(:,1), tUniqScores(:,2), 'r');
     xlabel('Score');ylabel('Number of times scored');
-    print 'score-frequencies.png'
+    print '../graphs/score-frequencies.png'
     close;
 
     % To store and return records in readable format    

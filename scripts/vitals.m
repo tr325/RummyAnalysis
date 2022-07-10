@@ -2,12 +2,12 @@ function [hands vitals] = vitals(totals, RECORDS)
     
     % Plots difference in score
     sDiff = totals(:,1)-totals(:,2);
-    figure
+    figure ("visible", "off");
     plot(sDiff);
-    title('Score difference')
-    xlabel('Hand number')
-    grid on
-    print 'score.png'
+    title('Score difference');
+    xlabel('Hand number');
+    grid on;
+    print '../graphs/score.png';
     close;
     
     oTot = [0,0; totals];

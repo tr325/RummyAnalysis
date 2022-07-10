@@ -2,8 +2,8 @@ function [handRecords] = handRecords(hands)
 
     handTotals = sum(hands, 2);
     bins = linspace(-100, 400, 101); % linear space bins of width 5
-    figure
-    hist(handTotals, bins)
+    figure ("visible", "off");
+    hist(handTotals, bins);
     title('Total points scored per hand');
     %TODO: set xticks to be readable
     % print handscores.png
