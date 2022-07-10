@@ -10,7 +10,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Download repository, delete old results
+      - name: Download repository
         run: |
           git init
           git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
@@ -18,7 +18,7 @@ jobs:
           git config --global user.name "tom-in-the-machine"
           git fetch
           git checkout master
-      - name: Update scores etc
+      - name: Update scores etc.
         run: |
           sudo apt-get update
           sudo apt-get install octave
