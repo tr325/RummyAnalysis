@@ -9,16 +9,19 @@ env:
 jobs:
   update:
     runs-on: ubuntu-latest
-    container:
-      image: gnuoctave/octave:6.3.0
     steps:
+      # This fails because it can't use `mkdir` in the container... I guess because the container is so stripped down?
+      # Which means I can't actually run my sodding update on the code... Maybe better to re-try installing octave to
+      # the ubunty-latest runner?
       - name: Download repository
         uses: actions/checkout@v3
         with:
           ref: actions-automation
       - name: Update scores etc
-        run:
-           octave scripts/update.m
+        run: |
+          sudo apt-get update
+          sudo apt-get install octave
+          octave scripts/update.m
       - name: Upload changed artifacts
         uses: actions/upload-artifact@v3
         with:
