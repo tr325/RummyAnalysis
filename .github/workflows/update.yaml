@@ -1,0 +1,32 @@
+name: Update scores and analyse
+on:
+  push:
+    paths:
+      newscore.txt
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repository, delete old results
+        run: |
+          git init
+          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "tom-in-the-machine@bot.net"
+          git config --global user.name "tom-in-the-machine"
+          git fetch
+          git checkout master
+      - name: Update scores etc
+        run: |
+          sudo apt-get update
+          sudo apt-get install octave
+          cd scripts
+          octave update.m
+      - name: Push new results
+        run: |
+          ls -al
+          git branch --set-upstream-to=origin/master
+          git commit -a -m 'Recalculate totals and records'
+          git push
