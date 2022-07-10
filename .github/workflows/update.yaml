@@ -9,20 +9,19 @@ env:
 jobs:
   update:
     runs-on: ubuntu-latest
-    container:
-      image: gnuoctave/octave:6.3.0
     steps:
       # TODO: does Ubuntu include octave?
       - name: Push changes after running update
         run: |
-          sudo git init
+          apt-get update && apt-get install octave
+          git init
           # TODO: need to add the appropriate secret to the Github repo
-          sudo git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
-          sudo git config --global user.email "my-bot@bot.com"
-          sudo git config --global user.name "my-bot"
-          sudo git fetch
-          sudo git checkout master
-          sudo git branch --set-upstream-to=origin/master
+          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "my-bot@bot.com"
+          git config --global user.name "my-bot"
+          git fetch
+          git checkout master
+          git branch --set-upstream-to=origin/master
           octave scripts/update.m
-          sudo git commit -a -m 'Recalculate totals and records'
-          sudo git push
+          git commit -a -m 'Recalculate totals and records'
+          git push
