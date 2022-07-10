@@ -13,12 +13,11 @@ jobs:
       - name: Download repository, delete old results
         run: |
           git init
-          # TODO: need to add the appropriate secret to the Github repo
           git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
-          git config --global user.email "tom-in-the-machine@bot.com"
+          git config --global user.email "tom-in-the-machine@bot.net"
           git config --global user.name "tom-in-the-machine"
           git fetch
-          git checkout actions-automation
+          git checkout master
       - name: Update scores etc
         run: |
           sudo apt-get update
@@ -28,6 +27,6 @@ jobs:
       - name: Push new results
         run: |
           ls -al
-          git branch --set-upstream-to=origin/actions-automation
+          git branch --set-upstream-to=origin/master
           git commit -a -m 'Recalculate totals and records'
           git push
