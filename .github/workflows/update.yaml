@@ -24,7 +24,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install octave
-          octave scripts/update.m
+          cd scripts
+          octave update.m
       - name: Push new results
         run: |
           ls -al
