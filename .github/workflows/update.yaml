@@ -26,6 +26,8 @@ jobs:
           sudo apt-get install octave
           pwd
           ls -al
+          ls ..
+          ls ../results
           cd scripts
           echo "cd scripts"
           pwd
