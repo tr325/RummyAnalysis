@@ -38,6 +38,7 @@ jobs:
         with:
           name: results
       - name: Push new results
+        run: |
           git branch --set-upstream-to=origin/actions-automation
           git commit -a -m 'Recalculate totals and records'
           git push
