@@ -12,6 +12,10 @@ jobs:
     container:
       image: gnuoctave/octave:6.3.0
     steps:
+      - name: Download repository
+        uses: actions/checkout@v3
+        with:
+          ref: actions-automation
       - name: Update scores etc
         run:
            octave scripts/update.m
@@ -22,6 +26,7 @@ jobs:
           path: results
   push-changes:
     runs-on: ubuntu-latest  # TODO: just need git really
+    needs: update
     steps:
       - name: Download repository, delete old results
         run: |
