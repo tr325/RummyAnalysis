@@ -1,9 +1,9 @@
 
-Total hands played:	 2514, 
-Oli's current lead:	 4945, 
-Total scores:	 188400, 183455
+Total hands played:	 2542, 
+Oli's current lead:	 5040, 
+Total scores:	 190210, 185170
 Modes:	 65, 50
-Mean scores:	 74.940, 72.973
+Mean scores:	 74.827, 72.844
 Maxes:	 280, 260
 Mins:	 -90, -80
 Max swings:	 310, 225
@@ -17,10 +17,10 @@ Best ten hand score:	 1380, 1435
 Worst ten hand score:	 200, 175
 Biggest ten hand swing:	 985, 805
 Mode score:	 65, 50
-Frequency of mode:	 149, 161
+Frequency of mode:	 150, 165
 Second mode score:	 50, 65
-Frequency of second mode:	 137, 145
-(Mode/second mode) ratio:	 1.088, 1.110
+Frequency of second mode:	 138, 146
+(Mode/second mode) ratio:	 1.087, 1.130
 Average total points scored per hand:	 148, 
 Percentage of hands drawn:	 0.730, 
 Longest winning streak:	 12, 10
