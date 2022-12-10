@@ -1,9 +1,9 @@
 
-Total hands played:	 2487, 
-Oli's current lead:	 5225, 
-Total scores:	 186440, 181215
+Total hands played:	 2490, 
+Oli's current lead:	 5280, 
+Total scores:	 186550, 181270
 Modes:	 65, 50
-Mean scores:	 74.966, 72.865
+Mean scores:	 74.920, 72.799
 Maxes:	 280, 260
 Mins:	 -90, -80
 Max swings:	 310, 225
