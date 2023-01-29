@@ -21,3 +21,4 @@ Manual running of the update analyses was replaced by a Github Actions workflow 
 * Runs ```update.m```
 * Commit the changes back to the repository
 
+#TODO: slowest to jointly score 1k/5k/10k
